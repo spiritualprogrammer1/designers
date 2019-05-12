@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ciprel</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <base href="/">
+
+ 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+   </head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <br/><br/>
+  <div class="">
+    <div class="panel-heading text-center">
+    </div>
+    <br/>
+  
+ </div>
+
+</div>
+
+
+
+<div class="container">
+  <form action="">
+
+   
+        <div class="col-md-12 text-center">
+          <span>   <strong class="text-uppercase">  <u> <h4> Recencement de tous les équiments à partir des PIDs</h4> </u> </strong> </span>
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-8 col-form-label"> <strong>Référence du PID</strong> </label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Référence équipement :</strong> </label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row espacetop" >
+          <div class="col-md-6">
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Code équipement :</strong> </label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-5 col-form-label"> <strong>Décomposition du code</strong> </label>
+              <div class="col-sm-7">
+                <select id="inputState" (change)="selectedCode($event.target.value)"  class="form-control">
+                  <option selected>choisir</option>
+                  <option [value]="i"  *ngFor="let decomposionCode of decomposionCodes; index as i">{{decomposionCode}}</option>
+
+
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row espacetop" *ngIf="compositionId==0">
+          <hr>
+          <div class="form-row">
+            <div class="col-md-1">
+              <span class="text-danger"> equipmement</span>
+            </div>
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Identification tranche</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 100px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Système élementaire</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+            <div class=" col-md-2">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Equipement</label>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-12">
+                    <table>
+                      <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                        <td style="border-right: 1px solid black;width: 40px"><input type="text" style="width: 100%;border: none"> </td>
+                        <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                        <td style="border-right: 1px solid black;width: 40px"><input type="text" style="width: 100%;border: none">  </td>
+                        <td style="border-right: 1px solid black;width: 40px"> <input type="text" style="width: 100%;border: none"> </td>
+                        <td style="width: 40px"><input type="text" style="width: 100%;border: none">  </td>
+                      </tr>
+                    </table>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Composant électrique</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none">  </td>
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row espacetop" *ngIf="compositionId==1">
+          <div class="form-row">
+            <div class="col-md-2">
+              Robinetterie/
+              instrumentation <br/>
+            </div>
+            <div class=" col-md-2">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Identification tranche</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 100px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Système élementaire</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+            <div class=" col-md-2">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Code ISA</label>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-12">
+                    <table>
+                      <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                        <td style="border-right: 1px solid black;width: 40px"><input type="text" style="width: 100%;border: none"> </td>
+                        <td style="border-right: 1px solid black;width: 40px"> <input type="text" style="width: 100%;border: none"> </td>
+                        <td style="border-right: 1px solid black;width: 40px"><input type="text" style="width: 100%;border: none">  </td>
+                        <td style="border-right: 1px solid black;width: 40px"> <input type="text" style="width: 100%;border: none"> </td>
+                      </tr>
+                    </table>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Numéro d'ordre</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 90px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row espacetop" *ngIf="compositionId==2">
+          <div class="form-row">
+            <div class="col-md-2">
+              Tuyauterie, Vidange de circuit,
+              Event,Gaine de ventilation
+
+            </div>
+            <div class=" col-md-2">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Identification tranche</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 100px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Système élementaire</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Numéro d'ordre</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+            <div class=" col-md-2">
+              <div class="col-md-12 text-left">
+                <label for="inputEmail4">A2</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none"> </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row espacetop" *ngIf="compositionId==3">
+          <div class="form-row">
+            <div class="col-md-2">
+              Câblage
+            </div>
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Identification tranche</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 100px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+            <div class=" col-md-3">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Système élementaire</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 100px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+
+            <div class=" col-md-2">
+              <div class="col-md-12 text-center">
+                <label for="inputEmail4">Numéro d'ordre</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"> <input type="text" style="width: 100%;border: none"> </td>
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none">  </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+            <div class=" col-md-2">
+              <div class="col-md-12 text-left">
+                <label for="inputEmail4">A2</label>
+              </div>
+              <div class="col-md-12">
+                <table>
+                  <tr style="border: 1px solid #6e6e6e; height: 30px;width: 100%">
+                    <td style="border-right: 1px solid black;width: 50px"><input type="text" style="width: 100%;border: none"> </td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row espacetop" >
+          <label for=""></label>
+          <div class="col-md-6">
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-8 col-form-label"> <strong>Désignation</strong> </label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Réference Datasheet :</strong> </label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row espacetop">
+
+
+          <div class="col-md-12 text-center">
+            <span class=""> <h4> <u> Caractéristiques principales</u> </h4> </span>
+          </div>
+
+          <div class="col-md-12 espacetop">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-8 col-form-label"> <strong>Fluide de travail</strong> </label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Diamètre nominal (mm)</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 espacetop">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Pression maximale admissible /Pression de tarage (Bar.g)</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Température de service (°C)</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 espacetop">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Débit (m3/mn)</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Volume (litre)</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Puissance (KW)</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-12 espacetop">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Poids (Kg)</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Constructeur</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Modèle</strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="col-md-12 espacetop">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Plage de fonctionnement </strong> </label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="row">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label"> <strong>Photo</strong> </label>
+                  <div class="col-sm-8">
+                    <input type="file" class="form-control-file" id="" placeholder="">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+        <button class="btn btn-info  espacetop" type="button" awNextStep>Suivant</button>
+        <!--<button type="button" [awGoToStep]="{stepIndex: 2}">Go directly to third Step</button>-->
+      
+        <div class="row espacetop">
+
+
+          <div class="col-md-12 text-center">
+            <span class=""> <h5> Lignes directrices maintenance </h5> </span>
+          </div>
+
+          <div class="col-md-6 espacebottom">
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-6 col-form-label"> <strong>Fluide de travail</strong> </label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <span style="font-size: 20px">Plan de maintenance préventive de la famille</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <table style="width: 100%;" border="3">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th>Maintenance Niveau 1</th>
+                    <th>Maintenance Niveau 2</th>
+                    <th>Maintenance Niveau 3</th>
+                    <th>Maintenance Niveau 4</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Travail à faire</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Périodicité</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+          <button class="btn btn-info espacetop" type="button" awPreviousStep>Précédent</button>
+        <button class="btn btn-info espacetop" type="button" awNextStep>Suivant</button>
+     
+        <div class="row espacetop">
+          <div class="col-md-12 text-center">  <h3>Etape 2:Dispatching des familles d'équipements par métier</h3></div>
+        </div>
+        <div class="row espacetop">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <span style="font-size: 20px">Plan de maintenance préventive de la famille</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <table style="width: 100%;" border="3">
+                  <thead>
+                  <tr>
+                    <th>Plan de maintenance préventive</th>
+                    <th> Niveau 1</th>
+                    <th> Niveau 2</th>
+                    <th> Niveau 3</th>
+                    <th> Niveau 4</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Documents constructeurs analysés</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Description du plan de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Statut de la tranche</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Périodicité du plan de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Métier pilote</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Nombre de ressource locale</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Nombre de ressource spécialisée</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Durée de l’opération de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Liste des pièces de réchange nécessaire pour réaliser le plan de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Liste des outillages spécifiques nécessaires pour réaliser l’opération de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-info espacetop" type="button" awPreviousStep>Précédent</button>
+        <button class="btn btn-info espacetop" type="button" awNextStep>Suivant</button>
+     
+        <div class="row espacetop">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <span style="font-size: 20px"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <table style="width: 100%;" border="3">
+                  <thead>
+                  <tr>
+                    <th>Plan de maintenance préventive optimisé suite à analyse de criticité</th>
+                    <th> Niveau 1</th>
+                    <th> Niveau 2</th>
+                    <th> Niveau 3</th>
+                    <th> Niveau 4</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Documents constructeurs analysés</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Description du plan de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Statut de la tranche</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Périodicité du plan de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Métier pilote</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Nombre de ressource locale</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Nombre de ressource spécialisée</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Durée de l’opération de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Liste des pièces de réchange nécessaire pour réaliser le plan de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+                  <tr>
+                    <td>Liste des outillages spécifiques nécessaires pour réaliser l’opération de MP</td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                    <td><input type="text" style="width: 100%" class="emptyborder"></td>
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-info espacetop" type="button" awPreviousStep>Précedent</button>
+        <button class="btn btn-success espacetop" type="button" (click)="finishFunction()">Valider</button>
+    
+  </form>
+</div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+</html>
